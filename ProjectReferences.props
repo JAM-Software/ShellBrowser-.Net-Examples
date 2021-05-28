@@ -2,10 +2,10 @@
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <PackageReference Include="ShellBrowser.Core">
-      <Version>6.2.1.280</Version>
+      <Version>6.3.0.290</Version>
     </PackageReference>
     <PackageReference Include="ShellBrowser.NET">
-      <Version>6.2.1.280</Version>
+      <Version>6.3.0.290</Version>
     </PackageReference>
   </ItemGroup>
 </Project>
