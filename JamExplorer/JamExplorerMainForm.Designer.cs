@@ -72,9 +72,13 @@ namespace Jam.Explorer
             this.showHiddenObjectsListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileSystemOnlyToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.showOverlayIconsListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileExtensionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.likeInWindowsExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.fullRefreshListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.smartRefreshListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.toggleBackgroundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkBoxesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enabledToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -110,6 +114,11 @@ namespace Jam.Explorer
             this.splitContainerPreview = new System.Windows.Forms.SplitContainer();
             this.splitContainerTreeList = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.thumbnailImage1 = new Jam.Shell.ThumbnailImage();
+            this.shellControlConnector1 = new Jam.Shell.ShellControlConnector();
+            this.shellTreeView1 = new Jam.Shell.ShellTreeView();
+            this.shellListView1 = new Jam.Shell.ShellListView();
+            this.shellFilePreview1 = new Jam.Shell.ShellFilePreview();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -124,11 +133,6 @@ namespace Jam.Explorer
             this.toolStripButtonViewThumbnails = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.thumbnailImage1 = new Jam.Shell.ThumbnailImage();
-            this.shellControlConnector1 = new Jam.Shell.ShellControlConnector();
-            this.shellTreeView1 = new Jam.Shell.ShellTreeView();
-            this.shellListView1 = new Jam.Shell.ShellListView();
-            this.shellFilePreview1 = new Jam.Shell.ShellFilePreview();
             this.addressBar1 = new Jam.Shell.ShellAddressBar();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -143,11 +147,11 @@ namespace Jam.Explorer
             this.splitContainerTreeList.Panel2.SuspendLayout();
             this.splitContainerTreeList.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.thumbnailImage1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shellTreeView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shellListView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shellFilePreview1)).BeginInit();
+            this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addressBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -298,7 +302,7 @@ namespace Jam.Explorer
             this.myComputerToolStripMenuItem,
             this.cToolStripMenuItem});
             this.rootedAtToolStripMenuItem.Name = "rootedAtToolStripMenuItem";
-            this.rootedAtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rootedAtToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.rootedAtToolStripMenuItem.Text = "Rooted At";
             // 
             // likeWindowsExplorerToolStripMenuItem
@@ -345,7 +349,7 @@ namespace Jam.Explorer
             this.toolStripSeparator9,
             this.showOverlayiconsTreeToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.optionsToolStripMenuItem.Text = "Options";
             // 
             // automaticRefreshTreeToolStripMenuItem
@@ -406,19 +410,19 @@ namespace Jam.Explorer
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(144, 6);
             // 
             // smartRefreshTreeToolStripMenuItem
             // 
             this.smartRefreshTreeToolStripMenuItem.Name = "smartRefreshTreeToolStripMenuItem";
-            this.smartRefreshTreeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.smartRefreshTreeToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.smartRefreshTreeToolStripMenuItem.Text = "Smart Refresh";
             this.smartRefreshTreeToolStripMenuItem.Click += new System.EventHandler(this.smartRefreshTreeToolStripMenuItem_Click);
             // 
             // fullRefreshTreeToolStripMenuItem
             // 
             this.fullRefreshTreeToolStripMenuItem.Name = "fullRefreshTreeToolStripMenuItem";
-            this.fullRefreshTreeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fullRefreshTreeToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.fullRefreshTreeToolStripMenuItem.Text = "Full Refresh";
             this.fullRefreshTreeToolStripMenuItem.Click += new System.EventHandler(this.fullRefreshTreeToolStripMenuItem_Click);
             // 
@@ -441,7 +445,8 @@ namespace Jam.Explorer
             this.showParentFolderIconToolStripMenuItem,
             this.showHiddenObjectsListToolStripMenuItem,
             this.fileSystemOnlyToolStripMenuItem2,
-            this.showOverlayIconsListToolStripMenuItem});
+            this.showOverlayIconsListToolStripMenuItem,
+            this.fileExtensionsToolStripMenuItem});
             this.optionsToolStripMenuItem1.Name = "optionsToolStripMenuItem1";
             this.optionsToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.optionsToolStripMenuItem1.Text = "Options";
@@ -487,6 +492,44 @@ namespace Jam.Explorer
             this.showOverlayIconsListToolStripMenuItem.Text = "Show Overlay Icons";
             this.showOverlayIconsListToolStripMenuItem.Click += new System.EventHandler(this.showOverlayIconsListToolStripMenuItem_Click);
             // 
+            // fileExtensionsToolStripMenuItem
+            // 
+            this.fileExtensionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.likeInWindowsExplorerToolStripMenuItem,
+            this.showToolStripMenuItem,
+            this.hideToolStripMenuItem});
+            this.fileExtensionsToolStripMenuItem.Name = "fileExtensionsToolStripMenuItem";
+            this.fileExtensionsToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.fileExtensionsToolStripMenuItem.Text = "File Extensions";
+            // 
+            // likeInWindowsExplorerToolStripMenuItem
+            // 
+            this.likeInWindowsExplorerToolStripMenuItem.Checked = true;
+            this.likeInWindowsExplorerToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.likeInWindowsExplorerToolStripMenuItem.Name = "likeInWindowsExplorerToolStripMenuItem";
+            this.likeInWindowsExplorerToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.likeInWindowsExplorerToolStripMenuItem.Text = "Like in Windows Explorer";
+            this.likeInWindowsExplorerToolStripMenuItem.Click += new System.EventHandler(this.likeInWindowsExplorerToolStripMenuItem_Click);
+            // 
+            // showToolStripMenuItem
+            // 
+            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.showToolStripMenuItem.Text = "Show";
+            this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
+            // 
+            // hideToolStripMenuItem
+            // 
+            this.hideToolStripMenuItem.Name = "hideToolStripMenuItem";
+            this.hideToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.hideToolStripMenuItem.Text = "Hide";
+            this.hideToolStripMenuItem.Click += new System.EventHandler(this.hideToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(177, 6);
+            // 
             // fullRefreshListToolStripMenuItem
             // 
             this.fullRefreshListToolStripMenuItem.Name = "fullRefreshListToolStripMenuItem";
@@ -500,11 +543,6 @@ namespace Jam.Explorer
             this.smartRefreshListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.smartRefreshListToolStripMenuItem.Text = "Smart Refresh";
             this.smartRefreshListToolStripMenuItem.Click += new System.EventHandler(this.smartRefreshListToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(177, 6);
             // 
             // toggleBackgroundToolStripMenuItem
             // 
@@ -808,6 +846,87 @@ namespace Jam.Explorer
             this.tableLayoutPanel1.Size = new System.Drawing.Size(286, 571);
             this.tableLayoutPanel1.TabIndex = 12;
             // 
+            // thumbnailImage1
+            // 
+            this.thumbnailImage1.AutoSize = true;
+            this.thumbnailImage1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.thumbnailImage1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.thumbnailImage1.IconsAsThumnbnails = true;
+            this.thumbnailImage1.Location = new System.Drawing.Point(0, 397);
+            this.thumbnailImage1.Margin = new System.Windows.Forms.Padding(0);
+            this.thumbnailImage1.Name = "thumbnailImage1";
+            this.thumbnailImage1.Padding = new System.Windows.Forms.Padding(5);
+            this.thumbnailImage1.Path = "";
+            this.thumbnailImage1.ShellControlConnector = this.shellControlConnector1;
+            this.thumbnailImage1.Size = new System.Drawing.Size(286, 174);
+            this.thumbnailImage1.TabIndex = 0;
+            // 
+            // shellControlConnector1
+            // 
+            this.shellControlConnector1.Enabled = true;
+            // 
+            // shellTreeView1
+            // 
+            this.shellTreeView1.ContextMenuStrip = this.contextMenuStrip1;
+            this.shellTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.shellTreeView1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.shellTreeView1.FullRowSelect = true;
+            this.shellTreeView1.Indent = 19;
+            this.shellTreeView1.ItemHeight = 26;
+            this.shellTreeView1.Location = new System.Drawing.Point(0, 0);
+            this.shellTreeView1.Margin = new System.Windows.Forms.Padding(0);
+            this.shellTreeView1.Name = "shellTreeView1";
+            this.shellTreeView1.RootedAt = Jam.Shell.ShellFolder.Unknown;
+            this.shellTreeView1.RootedAtFileSystemFolder = "";
+            this.shellTreeView1.SelectedPath = "";
+            this.shellTreeView1.ShellControlConnector = this.shellControlConnector1;
+            this.shellTreeView1.ShowColorCompressed = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.shellTreeView1.ShowColorEncrypted = System.Drawing.Color.Empty;
+            this.shellTreeView1.ShowRootLines = true;
+            this.shellTreeView1.Size = new System.Drawing.Size(286, 397);
+            this.shellTreeView1.SpecialFolder = Jam.Shell.ShellFolder.Drives;
+            this.shellTreeView1.TabIndex = 0;
+            // 
+            // shellListView1
+            // 
+            this.shellListView1.AutoSizeColumn = -1;
+            this.shellListView1.BackColor = System.Drawing.SystemColors.Window;
+            this.shellListView1.ContextMenuStrip = this.contextMenuStrip1;
+            this.shellListView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.shellListView1.Filter = "";
+            this.shellListView1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.shellListView1.FullRowSelect = true;
+            this.shellListView1.Location = new System.Drawing.Point(0, 0);
+            this.shellListView1.Name = "shellListView1";
+            this.shellListView1.Path = "";
+            this.shellListView1.ShellControlConnector = this.shellControlConnector1;
+            this.shellListView1.ShowColorCompressed = System.Drawing.Color.Empty;
+            this.shellListView1.ShowColorEncrypted = System.Drawing.Color.Empty;
+            this.shellListView1.ShowItemToolTips = true;
+            this.shellListView1.ShowOverlayIcons = true;
+            this.shellListView1.Size = new System.Drawing.Size(532, 571);
+            this.shellListView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            this.shellListView1.TabIndex = 16;
+            this.shellListView1.ThumbnailBorderColor = System.Drawing.Color.LightGray;
+            this.shellListView1.ThumbnailSize = new System.Drawing.Size(100, 100);
+            this.shellListView1.UseCompatibleStateImageBehavior = false;
+            this.shellListView1.BeforeShellCommand += new System.EventHandler<Jam.Shell.BeforeShellCommandEventArgs>(this.shellListView1_BeforeShellCommand);
+            // 
+            // shellFilePreview1
+            // 
+            this.shellFilePreview1.DisplayMsg = "shellFilePreview1";
+            this.shellFilePreview1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.shellFilePreview1.ItemIdList = null;
+            this.shellFilePreview1.Location = new System.Drawing.Point(0, 0);
+            this.shellFilePreview1.Name = "shellFilePreview1";
+            this.shellFilePreview1.Path = null;
+            this.shellFilePreview1.ShellControlConnector = this.shellControlConnector1;
+            this.shellFilePreview1.Size = new System.Drawing.Size(287, 571);
+            this.shellFilePreview1.TabIndex = 14;
+            this.shellFilePreview1.Text = "shellFilePreview1";
+            this.shellFilePreview1.Visible = false;
+            this.shellFilePreview1.LoadPreview += new System.EventHandler<Jam.Shell.LoadPreviewEventArgs>(this.shellFilePreview1_LoadPreview);
+            // 
             // toolStrip
             // 
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -951,93 +1070,11 @@ namespace Jam.Explorer
             this.toolStripButton3.ToolTipText = "Toggle Preview";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
-            // thumbnailImage1
-            // 
-            this.thumbnailImage1.AutoSize = true;
-            this.thumbnailImage1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.thumbnailImage1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.thumbnailImage1.IconsAsThumnbnails = true;
-            this.thumbnailImage1.Location = new System.Drawing.Point(0, 397);
-            this.thumbnailImage1.Margin = new System.Windows.Forms.Padding(0);
-            this.thumbnailImage1.Name = "thumbnailImage1";
-            this.thumbnailImage1.Padding = new System.Windows.Forms.Padding(5);
-            this.thumbnailImage1.Path = "";
-            this.thumbnailImage1.ShellControlConnector = this.shellControlConnector1;
-            this.thumbnailImage1.Size = new System.Drawing.Size(286, 174);
-            this.thumbnailImage1.TabIndex = 0;
-            // 
-            // shellControlConnector1
-            // 
-            this.shellControlConnector1.Enabled = true;
-            // 
-            // shellTreeView1
-            // 
-            this.shellTreeView1.ContextMenuStrip = this.contextMenuStrip1;
-            this.shellTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.shellTreeView1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.shellTreeView1.FullRowSelect = true;
-            this.shellTreeView1.Indent = 19;
-            this.shellTreeView1.ItemHeight = 26;
-            this.shellTreeView1.Location = new System.Drawing.Point(0, 0);
-            this.shellTreeView1.Margin = new System.Windows.Forms.Padding(0);
-            this.shellTreeView1.Name = "shellTreeView1";
-            this.shellTreeView1.RootedAt = Jam.Shell.ShellFolder.Unknown;
-            this.shellTreeView1.RootedAtFileSystemFolder = "";
-            this.shellTreeView1.SelectedPath = "";
-            this.shellTreeView1.ShellControlConnector = this.shellControlConnector1;
-            this.shellTreeView1.ShowColorCompressed = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.shellTreeView1.ShowColorEncrypted = System.Drawing.Color.Empty;
-            this.shellTreeView1.ShowRootLines = true;
-            this.shellTreeView1.Size = new System.Drawing.Size(286, 397);
-            this.shellTreeView1.SpecialFolder = Jam.Shell.ShellFolder.Drives;
-            this.shellTreeView1.TabIndex = 0;
-            // 
-            // shellListView1
-            // 
-            this.shellListView1.AutoSizeColumn = -1;
-            this.shellListView1.BackColor = System.Drawing.SystemColors.Window;
-            this.shellListView1.ContextMenuStrip = this.contextMenuStrip1;
-            this.shellListView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.shellListView1.Filter = "";
-            this.shellListView1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.shellListView1.FullRowSelect = true;
-            this.shellListView1.Location = new System.Drawing.Point(0, 0);
-            this.shellListView1.Name = "shellListView1";
-            this.shellListView1.Path = "";
-            this.shellListView1.ShellControlConnector = this.shellControlConnector1;
-            this.shellListView1.ShowColorCompressed = System.Drawing.Color.Empty;
-            this.shellListView1.ShowColorEncrypted = System.Drawing.Color.Empty;
-            this.shellListView1.ShowItemToolTips = true;
-            this.shellListView1.ShowOverlayIcons = true;
-            this.shellListView1.Size = new System.Drawing.Size(532, 571);
-            this.shellListView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
-            this.shellListView1.TabIndex = 16;
-            this.shellListView1.ThumbnailBorderColor = System.Drawing.Color.LightGray;
-            this.shellListView1.ThumbnailSize = new System.Drawing.Size(100, 100);
-            this.shellListView1.UseCompatibleStateImageBehavior = false;
-            this.shellListView1.BeforeShellCommand += new System.EventHandler<Jam.Shell.BeforeShellCommandEventArgs>(this.shellListView1_BeforeShellCommand);
-            // 
-            // shellFilePreview1
-            // 
-            this.shellFilePreview1.DisplayMsg = "shellFilePreview1";
-            this.shellFilePreview1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.shellFilePreview1.ItemIdList = null;
-            this.shellFilePreview1.Location = new System.Drawing.Point(0, 0);
-            this.shellFilePreview1.Name = "shellFilePreview1";
-            this.shellFilePreview1.Path = null;
-            this.shellFilePreview1.ShellControlConnector = this.shellControlConnector1;
-            this.shellFilePreview1.Size = new System.Drawing.Size(287, 571);
-            this.shellFilePreview1.TabIndex = 14;
-            this.shellFilePreview1.Text = "shellFilePreview1";
-            this.shellFilePreview1.Visible = false;
-            this.shellFilePreview1.LoadPreview += new System.EventHandler<Jam.Shell.LoadPreviewEventArgs>(this.shellFilePreview1_LoadPreview);
-            // 
             // addressBar1
             // 
             this.addressBar1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.addressBar1.Location = new System.Drawing.Point(0, 61);
             this.addressBar1.Name = "addressBar1";
-            this.addressBar1.RootedAtFileSystemFolder = "Desktop";
             this.addressBar1.ShellControlConnector = this.shellControlConnector1;
             this.addressBar1.Size = new System.Drawing.Size(1113, 30);
             this.addressBar1.TabIndex = 20;
@@ -1079,12 +1116,12 @@ namespace Jam.Explorer
             this.splitContainerTreeList.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.toolStrip.ResumeLayout(false);
-            this.toolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.thumbnailImage1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shellTreeView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shellListView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shellFilePreview1)).EndInit();
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addressBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1193,5 +1230,9 @@ namespace Jam.Explorer
         private System.Windows.Forms.ToolStripMenuItem showHiddenObjectsListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fileSystemOnlyToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem showOverlayIconsListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fileExtensionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem likeInWindowsExplorerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hideToolStripMenuItem;
     }
 }

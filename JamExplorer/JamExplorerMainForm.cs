@@ -617,6 +617,31 @@ namespace Jam.Explorer
             shellTreeView1.ShellContextMenu = !shellTreeView1.ShellContextMenu;
             explorerContextMenuToolStripMenuItem.Checked = shellTreeView1.ShellContextMenu;
         }
+
+        private void ToggleExtensions(ToolStripMenuItem sender, FileNameFormat value)
+        {
+            shellListView1.FileNameFormat = value;
+            shellListView1.FullRefresh();
+            foreach (ToolStripMenuItem sibling in sender.GetCurrentParent().Items)
+            {
+                sibling.Checked = sender == sibling;
+            }
+
+        }
+        private void likeInWindowsExplorerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToggleExtensions((ToolStripMenuItem)sender, FileNameFormat.Auto);
+        }
+
+        private void showToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToggleExtensions((ToolStripMenuItem)sender, FileNameFormat.IncludeFileExtension);
+        }
+
+        private void hideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToggleExtensions((ToolStripMenuItem)sender, FileNameFormat.ExcludeFileExtension);
+        }
     }
 
     class CustomPreviewHandler : IShellPreviewHandler
