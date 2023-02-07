@@ -76,6 +76,10 @@ namespace Jam.Explorer
             this.likeInWindowsExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thumbnailModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.autoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thumbnailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iconsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.fullRefreshListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.smartRefreshListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -446,7 +450,8 @@ namespace Jam.Explorer
             this.showHiddenObjectsListToolStripMenuItem,
             this.fileSystemOnlyToolStripMenuItem2,
             this.showOverlayIconsListToolStripMenuItem,
-            this.fileExtensionsToolStripMenuItem});
+            this.fileExtensionsToolStripMenuItem,
+            this.thumbnailModeToolStripMenuItem});
             this.optionsToolStripMenuItem1.Name = "optionsToolStripMenuItem1";
             this.optionsToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.optionsToolStripMenuItem1.Text = "Options";
@@ -524,6 +529,39 @@ namespace Jam.Explorer
             this.hideToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.hideToolStripMenuItem.Text = "Hide";
             this.hideToolStripMenuItem.Click += new System.EventHandler(this.hideToolStripMenuItem_Click);
+            // 
+            // thumbnailModeToolStripMenuItem
+            // 
+            this.thumbnailModeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.autoToolStripMenuItem,
+            this.thumbnailsToolStripMenuItem,
+            this.iconsToolStripMenuItem});
+            this.thumbnailModeToolStripMenuItem.Name = "thumbnailModeToolStripMenuItem";
+            this.thumbnailModeToolStripMenuItem.Size = new System.Drawing.Size(306, 34);
+            this.thumbnailModeToolStripMenuItem.Text = "ThumbnailMode";
+            // 
+            // autoToolStripMenuItem
+            // 
+            this.autoToolStripMenuItem.Checked = true;
+            this.autoToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.autoToolStripMenuItem.Name = "autoToolStripMenuItem";
+            this.autoToolStripMenuItem.Size = new System.Drawing.Size(205, 34);
+            this.autoToolStripMenuItem.Text = "Auto";
+            this.autoToolStripMenuItem.Click += new System.EventHandler(this.autoToolStripMenuItem_Click);
+            // 
+            // thumbnailsToolStripMenuItem
+            // 
+            this.thumbnailsToolStripMenuItem.Name = "thumbnailsToolStripMenuItem";
+            this.thumbnailsToolStripMenuItem.Size = new System.Drawing.Size(205, 34);
+            this.thumbnailsToolStripMenuItem.Text = "Thumbnails";
+            this.thumbnailsToolStripMenuItem.Click += new System.EventHandler(this.thumbnailsToolStripMenuItem_Click);
+            // 
+            // iconsToolStripMenuItem
+            // 
+            this.iconsToolStripMenuItem.Name = "iconsToolStripMenuItem";
+            this.iconsToolStripMenuItem.Size = new System.Drawing.Size(205, 34);
+            this.iconsToolStripMenuItem.Text = "Icons";
+            this.iconsToolStripMenuItem.Click += new System.EventHandler(this.iconsToolStripMenuItem_Click);
             // 
             // toolStripMenuItem4
             // 
@@ -1234,5 +1272,9 @@ namespace Jam.Explorer
         private System.Windows.Forms.ToolStripMenuItem likeInWindowsExplorerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hideToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thumbnailModeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem autoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thumbnailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iconsToolStripMenuItem;
     }
 }

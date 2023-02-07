@@ -642,6 +642,40 @@ namespace Jam.Explorer
         {
             ToggleExtensions((ToolStripMenuItem)sender, FileNameFormat.ExcludeFileExtension);
         }
+
+        private void ToggleThumbnails(ToolStripMenuItem sender, ThumbnailMode value)
+        {
+            shellListView1.ThumbnailMode = value;
+            shellListView1.FullRefresh();
+            // ViewState lCurrentState = shellListView1.ViewState;
+            // if (lCurrentState == ViewState.Details)
+            //     shellListView1.ViewState = ViewState.LargeIcons;
+            // else
+            //     shellListView1.ViewState = ViewState.Details;
+            //
+            // shellListView1.ViewState = lCurrentState;
+
+            foreach (ToolStripMenuItem sibling in sender.GetCurrentParent().Items)
+            {
+                sibling.Checked = sender == sibling;
+            }
+        }
+
+        private void autoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToggleThumbnails((ToolStripMenuItem)sender, ThumbnailMode.Auto);
+        }
+
+        private void thumbnailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToggleThumbnails((ToolStripMenuItem)sender, ThumbnailMode.PreferThumbnails);
+        }
+
+        private void iconsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToggleThumbnails((ToolStripMenuItem)sender, ThumbnailMode.PreferIcons);
+        }
+
     }
 
     class CustomPreviewHandler : IShellPreviewHandler
