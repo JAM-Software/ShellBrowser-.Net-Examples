@@ -642,7 +642,108 @@ namespace Jam.Explorer
         {
             ToggleExtensions((ToolStripMenuItem)sender, FileNameFormat.ExcludeFileExtension);
         }
-    }
+
+        private void ToggleThumbnails(ToolStripMenuItem sender, ThumbnailMode value)
+        {
+            shellListView1.ThumbnailMode = value;
+            shellListView1.FullRefresh();
+            // ViewState lCurrentState = shellListView1.ViewState;
+            // if (lCurrentState == ViewState.Details)
+            //     shellListView1.ViewState = ViewState.LargeIcons;
+            // else
+            //     shellListView1.ViewState = ViewState.Details;
+            //
+            // shellListView1.ViewState = lCurrentState;
+
+            foreach (ToolStripMenuItem sibling in sender.GetCurrentParent().Items)
+            {
+                sibling.Checked = sender == sibling;
+            }
+        }
+
+        private void autoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToggleThumbnails((ToolStripMenuItem)sender, ThumbnailMode.Auto);
+        }
+
+        private void thumbnailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToggleThumbnails((ToolStripMenuItem)sender, ThumbnailMode.PreferThumbnails);
+        }
+
+        private void iconsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToggleThumbnails((ToolStripMenuItem)sender, ThumbnailMode.PreferIcons);
+        }
+
+
+        private void readOnlyToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            shellListView1.ReadOnly = !shellListView1.ReadOnly;
+            shellTreeView1.ReadOnly = !shellTreeView1.ReadOnly;
+            addressBar1.ReadOnly = !addressBar1.ReadOnly;
+
+            ((ToolStripMenuItem)sender).Checked = shellListView1.ReadOnly;
+        }
+
+        private ItemIdList m_RootItemIdList = null;
+
+        private void shellControlConnector1_FolderChanging(object sender, FolderChangingEventArgs e)
+        {
+            if (ItemIdList.IsNullOrInvalid(m_RootItemIdList))
+                return;
+
+            if (e.FolderIdList.IsSearchFolder || e.FolderIdList.IsInSearchFolder)
+                return;
+
+            e.Cancel = !(m_RootItemIdList.IsParentOf(e.FolderIdList));
+        }
+
+        private void RestrictAccess(bool pRelease)
+        {
+            if (pRelease)
+            {
+                m_RootItemIdList = null;
+                shellControlConnector1.FolderChanging -= shellControlConnector1_FolderChanging;
+                //back to normal
+                shellTreeView1.MultipleRoots = MultipleRoots.MultipleRoots;
+                addressBar1.RootedAt = ShellFolder.Desktop;
+            }
+            else
+            {
+                //Root controls
+                shellTreeView1.ClearRoots();
+                shellTreeView1.AddRoot(m_RootItemIdList);
+                shellListView1.FolderIdList = m_RootItemIdList;
+                addressBar1.RootedAtFolderIdList = m_RootItemIdList;
+
+                shellControlConnector1.FolderChanging += shellControlConnector1_FolderChanging;
+                shellControlConnector1.ClearHistory();
+            }
+        }
+
+        string m_OldCaption;
+        private void restrictAccessToFolderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem lSender = ((ToolStripMenuItem)sender);
+
+            if (lSender.Checked)
+            {
+                RestrictAccess(true);
+                lSender.Text = m_OldCaption;
+                lSender.Checked = false;
+            }
+            else
+            {
+                m_OldCaption = lSender.Text;
+                m_RootItemIdList = shellListView1.FolderIdList;
+                RestrictAccess(false);
+                lSender.Checked = true;
+                lSender.Text = m_OldCaption + " (" + m_RootItemIdList.DisplayPath + ")";
+            }
+        }
+
+        }
 
     class CustomPreviewHandler : IShellPreviewHandler
     {

@@ -210,16 +210,6 @@ namespace ExplorerBrowser
             new FormColumns().Show(explorerBrowser1);
         }
 
-        private void offToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            explorerBrowser1.CheckMode = CheckMode.None;
-        }
-
-        private void onToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            explorerBrowser1.CheckMode = CheckMode.AutoSelect;
-        }
-
         private void viewToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
         {
             detailsToolStripMenuItem.Checked = explorerBrowser1.View == Jam.Shell.Com.FolderViewMode.Details;
@@ -228,12 +218,6 @@ namespace ExplorerBrowser
             jumboIconsToolStripMenuItem.Checked = explorerBrowser1.View == Jam.Shell.Com.FolderViewMode.Thumbnail && explorerBrowser1.ThumbnailSize == (int)IconSize.Jumbo;
             tileToolStripMenuItem.Checked = explorerBrowser1.View == Jam.Shell.Com.FolderViewMode.Tile;
             contentToolStripMenuItem.Checked = explorerBrowser1.View == Jam.Shell.Com.FolderViewMode.Content;
-        }
-
-        private void checkboxesToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
-        {
-            offToolStripMenuItem.Checked = explorerBrowser1.CheckMode == CheckMode.None;
-            onToolStripMenuItem.Checked = explorerBrowser1.CheckMode == CheckMode.AutoSelect;
         }
 
         private void toolStripDropDownButton2_DropDownOpened(object sender, EventArgs e)
@@ -253,6 +237,8 @@ namespace ExplorerBrowser
             extendedTilesToolStripMenuItem.Checked = IsFlagSet(FolderFlags.ExtendedTiles);
             filteringAllowedToolStripMenuItem.Checked = !IsFlagSet(FolderFlags.NoFilters);
             groupingAllowedToolStripMenuItem.Checked = !IsFlagSet(FolderFlags.NoGrouping);
+
+            selectionCheckboxesToolStripMenuItem.Checked = explorerBrowser1.CheckMode == CheckMode.AutoSelect;
         }
 
         private void toolStripDropDownButton4_DropDownOpened(object sender, EventArgs e)
@@ -351,6 +337,51 @@ namespace ExplorerBrowser
             nameToolStripMenuItem.Checked = explorerBrowser1.Columns.SortBy == SHCOLUMNID.ShellColumnName;
             dateToolStripMenuItem.Checked = explorerBrowser1.Columns.SortBy == SHCOLUMNID.ShellColumnWriteTime;
             typeToolStripMenuItem.Checked = explorerBrowser1.Columns.SortBy == SHCOLUMNID.ShellColumnType;
+        }
+
+
+
+
+        ItemIdList m_Root = null;        
+        private void explorerBrowser1_NavigationPending(object sender, FolderChangingEventArgs e)
+        {
+            if (ItemIdList.IsNullOrInvalid(m_Root))
+                return;
+
+            e.Cancel = !e.FolderIdList.IsSearchFolder && !(m_Root.IsParentOf(e.FolderIdList));
+
+        }
+
+        private void restrictAccessToCurrentFolderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            const string msgDefault = "Restrict access to current folder";
+            const string msgRestricted = "Restricted to ";
+
+            ((ToolStripMenuItem)sender).Checked = !((ToolStripMenuItem)sender).Checked;
+            if (((ToolStripMenuItem)sender).Checked)
+            {
+                m_Root = explorerBrowser1.FolderIdList;
+                ((ToolStripMenuItem)sender).Text = msgRestricted + m_Root.Caption;
+            }
+            else
+            {
+                m_Root = null;
+                ((ToolStripMenuItem)sender).Text = msgDefault;
+            }
+        }
+
+        private void selectionCheckboxesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            selectionCheckboxesToolStripMenuItem.Checked = !selectionCheckboxesToolStripMenuItem.Checked;
+            if (selectionCheckboxesToolStripMenuItem.Checked)
+            {
+                explorerBrowser1.CheckMode = CheckMode.AutoSelect;
+            }
+            else
+            {
+                explorerBrowser1.CheckMode = CheckMode.None;
+            }
+            
         }
     }
 }

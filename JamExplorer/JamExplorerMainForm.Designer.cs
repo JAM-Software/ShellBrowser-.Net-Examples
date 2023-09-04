@@ -76,6 +76,10 @@ namespace Jam.Explorer
             this.likeInWindowsExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thumbnailModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.autoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thumbnailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iconsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.fullRefreshListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.smartRefreshListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -110,6 +114,9 @@ namespace Jam.Explorer
             this.userAccountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.folderOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.programsAndFeaturesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restrictAccessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.readOnlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restrictAccessToFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainerPreview = new System.Windows.Forms.SplitContainer();
             this.splitContainerTreeList = new System.Windows.Forms.SplitContainer();
@@ -273,7 +280,8 @@ namespace Jam.Explorer
             this.shellListViewToolStripMenuItem,
             this.checkBoxesToolStripMenuItem,
             this.specialFoldersToolStripMenuItem,
-            this.dialogsToolStripMenuItem});
+            this.dialogsToolStripMenuItem,
+            this.restrictAccessToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -446,7 +454,8 @@ namespace Jam.Explorer
             this.showHiddenObjectsListToolStripMenuItem,
             this.fileSystemOnlyToolStripMenuItem2,
             this.showOverlayIconsListToolStripMenuItem,
-            this.fileExtensionsToolStripMenuItem});
+            this.fileExtensionsToolStripMenuItem,
+            this.thumbnailModeToolStripMenuItem});
             this.optionsToolStripMenuItem1.Name = "optionsToolStripMenuItem1";
             this.optionsToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.optionsToolStripMenuItem1.Text = "Options";
@@ -524,6 +533,39 @@ namespace Jam.Explorer
             this.hideToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.hideToolStripMenuItem.Text = "Hide";
             this.hideToolStripMenuItem.Click += new System.EventHandler(this.hideToolStripMenuItem_Click);
+            // 
+            // thumbnailModeToolStripMenuItem
+            // 
+            this.thumbnailModeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.autoToolStripMenuItem,
+            this.thumbnailsToolStripMenuItem,
+            this.iconsToolStripMenuItem});
+            this.thumbnailModeToolStripMenuItem.Name = "thumbnailModeToolStripMenuItem";
+            this.thumbnailModeToolStripMenuItem.Size = new System.Drawing.Size(306, 34);
+            this.thumbnailModeToolStripMenuItem.Text = "ThumbnailMode";
+            // 
+            // autoToolStripMenuItem
+            // 
+            this.autoToolStripMenuItem.Checked = true;
+            this.autoToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.autoToolStripMenuItem.Name = "autoToolStripMenuItem";
+            this.autoToolStripMenuItem.Size = new System.Drawing.Size(205, 34);
+            this.autoToolStripMenuItem.Text = "Auto";
+            this.autoToolStripMenuItem.Click += new System.EventHandler(this.autoToolStripMenuItem_Click);
+            // 
+            // thumbnailsToolStripMenuItem
+            // 
+            this.thumbnailsToolStripMenuItem.Name = "thumbnailsToolStripMenuItem";
+            this.thumbnailsToolStripMenuItem.Size = new System.Drawing.Size(205, 34);
+            this.thumbnailsToolStripMenuItem.Text = "Thumbnails";
+            this.thumbnailsToolStripMenuItem.Click += new System.EventHandler(this.thumbnailsToolStripMenuItem_Click);
+            // 
+            // iconsToolStripMenuItem
+            // 
+            this.iconsToolStripMenuItem.Name = "iconsToolStripMenuItem";
+            this.iconsToolStripMenuItem.Size = new System.Drawing.Size(205, 34);
+            this.iconsToolStripMenuItem.Text = "Icons";
+            this.iconsToolStripMenuItem.Click += new System.EventHandler(this.iconsToolStripMenuItem_Click);
             // 
             // toolStripMenuItem4
             // 
@@ -786,6 +828,29 @@ namespace Jam.Explorer
             this.programsAndFeaturesToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.programsAndFeaturesToolStripMenuItem.Text = "Programs and Features";
             this.programsAndFeaturesToolStripMenuItem.Click += new System.EventHandler(this.programsAndFeaturesToolStripMenuItem_Click);
+            // 
+            // restrictAccessToolStripMenuItem
+            // 
+            this.restrictAccessToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.readOnlyToolStripMenuItem,
+            this.restrictAccessToFolderToolStripMenuItem});
+            this.restrictAccessToolStripMenuItem.Name = "restrictAccessToolStripMenuItem";
+            this.restrictAccessToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+            this.restrictAccessToolStripMenuItem.Text = "Restrict access";
+            // 
+            // readOnlyToolStripMenuItem
+            // 
+            this.readOnlyToolStripMenuItem.Name = "readOnlyToolStripMenuItem";
+            this.readOnlyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.readOnlyToolStripMenuItem.Text = "ReadOnly";
+            this.readOnlyToolStripMenuItem.Click += new System.EventHandler(this.readOnlyToolStripMenuItem1_Click);
+            // 
+            // restrictAccessToFolderToolStripMenuItem
+            // 
+            this.restrictAccessToFolderToolStripMenuItem.Name = "restrictAccessToFolderToolStripMenuItem";
+            this.restrictAccessToFolderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.restrictAccessToFolderToolStripMenuItem.Text = "Set scope to folder";
+            this.restrictAccessToFolderToolStripMenuItem.Click += new System.EventHandler(this.restrictAccessToFolderToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -1234,5 +1299,12 @@ namespace Jam.Explorer
         private System.Windows.Forms.ToolStripMenuItem likeInWindowsExplorerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hideToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thumbnailModeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem autoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thumbnailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iconsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem restrictAccessToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem readOnlyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem restrictAccessToFolderToolStripMenuItem;
     }
 }
